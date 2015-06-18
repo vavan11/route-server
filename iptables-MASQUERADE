@@ -21,6 +21,8 @@ iptables -A INPUT -p tcp --syn --dport 22 -m recent --name radiator --update --s
 iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
 iptables --append FORWARD --in-interface eth1 -j ACCEPT
 iptables --append FORWARD --in-interface eth1 -j ACCEPT
+# forvard incoming connection to port 80  
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.10.0.2:80
 # "Enables packet forwarding by kernel..."
 sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 # iptables-save
