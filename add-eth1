@@ -1,5 +1,6 @@
 #!/bin/bash
 # configure eth1
+
 echo "configure eth1 inet static"
 echo "iface eth1 inet static" >> /etc/network/interfaces
 echo "Enter ip-address : "
