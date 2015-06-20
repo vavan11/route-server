@@ -1,0 +1,9 @@
+#!/bin/bash
+# "Enables packet forwarding by kernel..."
+echo "Creating file ip_forward and add option sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+echo "sh -c \"echo 1 > /proc/sys/net/ipv4/ip_forward\"" >> /etc/init.d/ip_forward
+echo "add permission to ip_forward"
+echo "chmod +x /etc/init.d/ip_forward"
+chmod +x /etc/init.d/ip_forward 
+echo "update-rc.d ip_forward defaults 90"
+update-rc.d ip_forward defaults 90
