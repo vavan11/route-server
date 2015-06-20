@@ -1,7 +1,16 @@
 #!/bin/bash
-# configure eth1
+echo "configure eth1 inet static"
 echo "iface eth1 inet static" >> /etc/network/interfaces
-echo "address 10.10.0.1" >> /etc/network/interfaces
-echo "netmask 255.255.255.240" >> /etc/network/interfaces
+echo "Enter ip-address : "
+read ip
+if [ -L ip ] ; then
+echo "$ip"
+fi
+echo "Enter netmask : "
+read mask
+if [ -L mask ] ; then
+echo "$mask"
+fi
+echo "address $ip" >> /etc/network/interfaces
+echo "netmask $mask" >> /etc/network/interfaces
 echo "auto eth1" >> /etc/network/interfaces
-reboot
