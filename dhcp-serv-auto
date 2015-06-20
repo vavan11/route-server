@@ -1,5 +1,6 @@
 #!/bin/bash
 apt-get update && apt-get install isc-dhcp-server -y
+
 cat /dev/null > /etc/default/isc-dhcp-server
 echo "INTERFACES=\"eth1\"" >> /etc/default/isc-dhcp-server
 cat /dev/null > /etc/dhcp/dhcpd.conf
@@ -14,4 +15,8 @@ echo "range 10.10.0.2 10.10.0.14;" >> /etc/dhcp/dhcpd.conf
 echo "option broadcast-address 10.10.0.15;" >> /etc/dhcp/dhcpd.conf
 echo "option routers 10.10.0.1;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
+
+echo "restart isc-dhcp-server"
 service isc-dhcp-server restart
+echo "status isc-dhcp-server"
+service isc-dhcp-server status
