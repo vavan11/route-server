@@ -6,12 +6,12 @@ echo "iface eth1 inet static" >> /etc/network/interfaces
 echo "Enter ip-address : "
 read ip
 if [ -L ip ] ; then
-echo "$ip"
+  echo "$ip"
 fi
 echo "Enter netmask : "
 read mask
 if [ -L mask ] ; then
-echo "$mask"
+  echo "$mask"
 fi
 echo "address $ip" >> /etc/network/interfaces
 echo "netmask $mask" >> /etc/network/interfaces
