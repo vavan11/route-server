@@ -20,5 +20,5 @@ echo "auto eth1" >> /etc/network/interfaces
 # up eth1
 echo "up eth1"
 ifconfig eth1 down
-service networking restart
+/etc/init.d/networking restart
 ifconfig eth1 up
