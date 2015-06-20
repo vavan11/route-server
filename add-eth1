@@ -1,4 +1,5 @@
 #!/bin/bash
+# configure eth1
 echo "configure eth1 inet static"
 echo "iface eth1 inet static" >> /etc/network/interfaces
 echo "Enter ip-address : "
@@ -15,6 +16,7 @@ echo "address $ip" >> /etc/network/interfaces
 echo "netmask $mask" >> /etc/network/interfaces
 echo "auto eth1" >> /etc/network/interfaces
 
+# ap eth1
 ifconfig eth1 down
 service networking restart
 ifconfig eth1 up
