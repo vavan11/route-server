@@ -18,6 +18,7 @@ echo "netmask $mask" >> /etc/network/interfaces
 echo "auto eth1" >> /etc/network/interfaces
 
 # up eth1
+echo "up eth1"
 ifconfig eth1 down
 service networking restart
 ifconfig eth1 up
