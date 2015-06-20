@@ -1,9 +1,22 @@
 #!/bin/bash
 # "Enables packet forwarding by kernel..."
-echo "Creating file ip_forward and add option sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+
+echo "#!/bin/sh" >> /etc/init.d/ip_forward
+echo "### BEGIN INIT INFO" >> /etc/init.d/ip_forward
+echo "# Provides:          ip_forward" >> /etc/init.d/ip_forward
+echo "# Required-Start:    " >> /etc/init.d/ip_forward
+echo "# Required-Stop:" >> /etc/init.d/ip_forward
+echo "# Should-Start:" >> /etc/init.d/ip_forward
+echo "# Default-Start:     1 2 3 4 5" >> /etc/init.d/ip_forward
+echo "# Default-Stop:" >> /etc/init.d/ip_forward
+echo "# Short-Description: Create dynamic part of /etc/ip_forward" >> /etc/init.d/ip_forward
+echo "# Description:       /etc/ip_forward is user-editable and static.  This script" >> /etc/init.d/ip_forward
+echo "#                    creates the initial dynamic part, by default the" >> /etc/init.d/ip_forward
+echo "#                    output of uname, and stores it in /var/run/motd.dynamic." >> /etc/init.d/ip_forward
+echo "#                    Both parts are output by pam_motd." >> /etc/init.d/ip_forward
+echo "### END INIT INFO" >> /etc/init.d/ip_forward
 echo "sh -c \"echo 1 > /proc/sys/net/ipv4/ip_forward\"" >> /etc/init.d/ip_forward
-echo "add permission to ip_forward"
-echo "chmod +x /etc/init.d/ip_forward"
+
 chmod +x /etc/init.d/ip_forward 
 echo "update-rc.d ip_forward defaults 90"
 update-rc.d ip_forward defaults 90
