@@ -1,7 +1,0 @@
-#!/bin/bash
-# up eth1
-echo "up eth1"
-ifconfig eth1 down
-/etc/init.d/networking restart
-ifconfig eth1 up
-ifconfig eth1
